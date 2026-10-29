@@ -11,6 +11,6 @@ module "compute" {
   source                 = "./modules/compute"
   public_subnet          = module.networking.public_subnet_id
   private_subnet         = module.networking.private_subnet_id
-  public_security_group  = module.networking.public_security_group_id
-  private_security_group = module.networking.private_security_group_id
+  public_security_group  = module.security_groups.public_sg
+  private_security_group = module.security_groups.pirvate_sg
 }
