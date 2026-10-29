@@ -5,14 +5,8 @@
   roles:
     - app_server
 
-- name: Deploy Public Proxy
-  hosts: role_web_proxy
-  become: true
-  roles:
-    - web_proxy
-
 - name: Configure Node exporter
-  hosts: all
+  hosts: aws_ec2
   become: true
   roles:
     - node_exporter
@@ -22,5 +16,6 @@
   become: true
   roles:
     - swap
+    - web_proxy
     - prometheus
     - grafana
