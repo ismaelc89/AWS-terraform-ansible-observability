@@ -93,14 +93,3 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_egress" {
   ip_protocol       = "-1"
   cidr_ipv4         = "0.0.0.0/0"
 }
-
-
-# Get AZs in the current region that support t3.micro
-data "aws_ec2_instance_type_offerings" "t3_micro" {
-  filter {
-    name   = "instance-type"
-    values = ["t3.micro"]
-  }
-
-  location_type = "availability-zone"
-}
